@@ -5,6 +5,10 @@ class MealDetailScreen extends StatelessWidget {
   static const String routeName = "MealDetailScreen";
   Size size;
 
+  Function helper;
+
+  MealDetailScreen(this.helper);
+
   Widget buildSectionTitle(BuildContext context, String title) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10),
@@ -95,6 +99,12 @@ class MealDetailScreen extends StatelessWidget {
             ),
           ),
         ]),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.bookmark),
+        onPressed: () {
+          return helper(data.id);
+        },
       ),
     );
   }
